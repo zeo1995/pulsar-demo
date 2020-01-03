@@ -1,4 +1,4 @@
-# 1234567
+# pulsar-demo
 
 ## Project setup
 ```
