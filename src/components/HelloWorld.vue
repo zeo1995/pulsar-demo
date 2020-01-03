@@ -3,31 +3,49 @@
     <h1>分页样式</h1>
     <div class="table-main">
       <div class="search">
-        <el-input v-model="searchData" placeholder="Search Tenants" class="input"></el-input>
-        <el-button slot="append" icon="el-icon-search" type="primary"></el-button>
+        <el-input v-model="searchData"
+                  placeholder="Search Tenants"
+                  class="input"></el-input>
+        <el-button slot="append"
+                   icon="el-icon-search"
+                   type="primary"></el-button>
       </div>
-      <el-table :data="tableData" border>
-        <el-table-column prop="username" label="User Name" align="center"></el-table-column>
-        <el-table-column prop="userDescription" label="User Description" align="center"></el-table-column>
-        <el-table-column prop="userEmail" label="User Email" align="center"></el-table-column>
-        <el-table-column prop="userPhoneNumber" label="User Phone Number" align="center"></el-table-column>
-        <el-table-column prop="userLocation" label="User Location" align="center"></el-table-column>
-        <el-table-column prop="userCompany" label="usesr.colUserCompany" align="center"></el-table-column>
-        <el-table-column label="Actions" align="center">
-          <el-button size="mini" type="primary">Edit</el-button>
-          <el-button size="mini" type="danger">Delete</el-button>
+      <el-table :data="tableData"
+                border>
+        <el-table-column prop="username"
+                         label="User Name"
+                         align="center"></el-table-column>
+        <el-table-column prop="userDescription"
+                         label="User Description"
+                         align="center"></el-table-column>
+        <el-table-column prop="userEmail"
+                         label="User Email"
+                         align="center"></el-table-column>
+        <el-table-column prop="userPhoneNumber"
+                         label="User Phone Number"
+                         align="center"></el-table-column>
+        <el-table-column prop="userLocation"
+                         label="User Location"
+                         align="center"></el-table-column>
+        <el-table-column prop="userCompany"
+                         label="usesr.colUserCompany"
+                         align="center"></el-table-column>
+        <el-table-column label="Actions"
+                         align="center">
+          <el-button size="mini"
+                     type="primary">Edit</el-button>
+          <el-button size="mini"
+                     type="danger">Delete</el-button>
         </el-table-column>
       </el-table>
       <div class="pagination">
-        <el-pagination
-          background
-          layout="total, sizes, prev, pager, next, jumper, slot"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
-          :current-page="currentPage"
-          :page-size="pageSize"
-          :total="total"
-        ></el-pagination>
+        <el-pagination background
+                       layout="total, sizes, prev, pager, next, jumper, slot"
+                       @current-change="handleCurrentChange"
+                       @size-change="handleSizeChange"
+                       :current-page="currentPage"
+                       :page-size="pageSize"
+                       :total="total"></el-pagination>
       </div>
     </div>
   </div>
@@ -38,7 +56,7 @@ import Mock from "mockjs";
 
 export default {
   name: "HelloWorld",
-  data: function() {
+  data: function () {
     return {
       Mock: Mock,
       tableData: [
@@ -61,7 +79,7 @@ export default {
 
   computed: {},
 
-  created: function() {
+  created: function () {
     let Random = Mock.Random;
     Random.date();
     let dataMock = Mock.mock({
@@ -83,7 +101,7 @@ export default {
   },
 
   methods: {
-    handleCurrentChange: function(val) {
+    handleCurrentChange: function (val) {
       this.currentPage = val;
       this.tableData = this.dataList.slice(
         (val - 1) * this.pageSize,
@@ -91,7 +109,7 @@ export default {
       );
     },
 
-    handleSizeChange: function(val) {
+    handleSizeChange: function (val) {
       this.pageSize = val;
       this.tableData = this.dataList.slice(
         this.currentPage - 1,
