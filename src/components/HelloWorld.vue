@@ -65,7 +65,7 @@ export default {
     let Random = Mock.Random;
     Random.date();
     let dataMock = Mock.mock({
-      "dataList|50": [
+      "dataList|100": [
         {
           username: "@cname",
           userDescription: "@cname",
@@ -94,8 +94,8 @@ export default {
     handleSizeChange: function(val) {
       this.pageSize = val;
       this.tableData = this.dataList.slice(
-        this.currentPage - 1,
-        val * this.currentPage
+        (this.currentPage - 1) * val,
+        this.currentPage * val
       );
     }
   }
